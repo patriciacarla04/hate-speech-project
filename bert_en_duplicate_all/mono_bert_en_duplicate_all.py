@@ -348,3 +348,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+# Example:
+# python your_script_name.py --train_data path/to/train.csv --test_data path/to/test.csv --output_dir path/to/output --batch_size 32 --max_len 128 --epochs 3
