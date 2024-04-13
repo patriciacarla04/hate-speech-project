@@ -14,6 +14,8 @@ import os
 import numpy as np
 import pickle
 import argparse
+import time
+import sys
 
 
 def prepare_data_for_training(data, labels, tokenizer, max_len, batch_size):
@@ -300,9 +302,17 @@ def main():
 
     output_dir = args.output_dir  # Directory to save the model
 
+    # Start timing
+    start_time = time.time()
+
     train_loss, eval_metrics = training_instance.train(train_dataloader, eval_dataloader, output_dir, save_best=True)
 
-    print("Training complete.")
+    # End timing
+    end_time = time.time()
+
+    # Calculate and print the training duration
+    training_duration = end_time - start_time
+    print(f"Training complete in {training_duration:.2f} seconds.")
 
     #Model evaluation
     
